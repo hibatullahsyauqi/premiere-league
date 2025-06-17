@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: premiere-league-service
+spec:
+  selector:
+    app: premiere-league
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP

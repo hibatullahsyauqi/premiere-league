@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: premiere-league-deployment
+  labels:
+    app: premiere-league
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: premiere-league
+  template:
+    metadata:
+      labels:
+        app: premiere-league
+    spec:
+      containers:
+      - name: premiere-league-app
+        image: hibatullahsyauqi/premiere-league:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:postgresql://your-postgres-service:5432/prem_stats"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "postgres"
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "123"

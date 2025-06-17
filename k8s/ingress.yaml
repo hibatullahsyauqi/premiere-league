@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: premiere-league-ingress
+spec:
+  rules:
+  - host: "premiere-league.example.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: premiere-league-service
+            port:
+              number: 80
