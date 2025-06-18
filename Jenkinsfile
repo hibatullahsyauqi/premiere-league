@@ -15,6 +15,7 @@ pipeline {
                 checkout scm
             }
         }
+
         // Stage 2: Build the application and run tests using Maven
         stage('Build & Test') {
             steps {
@@ -22,6 +23,7 @@ pipeline {
                 sh './mvnw clean install'
             }
         }
+
         // Stage 3: Build the Docker image using the Dockerfile
         stage('Build Docker Image') {
             steps {

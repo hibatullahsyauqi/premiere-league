@@ -15,7 +15,6 @@ COPY src ./src
 # will be run in a separate stage in the CI/CD pipeline.
 RUN mvn clean package -DskipTests
 
-
 # --- Stage 2: Create the final, lightweight production image ---
 FROM eclipse-temurin:21-jre-jammy
 
